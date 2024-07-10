@@ -1,71 +1,109 @@
----
-title: Introduction
-description: 'Welcome to the home of your new documentation'
----
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+# Steps to Update the Schema in API Package
 
-## Setting up
+## Install Dependencies:
+Before navigating to the OpenAPI folder, install the necessary dependencies:
+```
+npm install
+```
 
-The first step to world-class documentation is setting up your editing environments.
+## Navigate to the OpenAPI Folder:
+Open your terminal and navigate to the OpenAPI folder within the eigen-explorer package:
+```
+cd packages
+cd openapi
+```
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+## Open the `withdrawalsResponseSchema.ts` File:
+Locate and open the `withdrawalsResponseSchema.ts` file in your preferred code editor.
 
-## Make it yours
+## Find and Update the Schema:
+Locate the part of the schema where you need to add the new data. Make sure to match the data type and content for the new field you are adding.
 
-Update your docs to your brand and add valuable content for the best user conversion.
+## Start the Server:
+Start the server to write the OpenAPI document to `openapi.json`:
+```
+npm start
+```
+This should generate or update the `openapi.json` file.
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+## Stop the Server:
+Once the `openapi.json` is generated, stop the server by pressing `Ctrl + C` in the terminal.
+
+## Verify Changes:
+Open the `openapi.json` file to ensure your changes are reflected correctly.
+
+# File Update Process
+
+## Copy and Replace `openapi.json`
+To update the `openapi.json` file in the documentation folder with the latest version from the backend folder, follow these steps:
+Copy `openapi.json` from the backend folder:
+```
+cp backend/openapi.json doc-main/openapi.json
+```
+Paste and replace the existing `openapi.json` in the `doc-main` folder:
+```
+cp backend/openapi.json doc-main/openapi.json
+```
+
+# Set Up Local Server for Mintlify
+
+Mintlify is a tool used for creating documentation websites. To run a Mintlify project locally, you need to have Node.js installed. Here’s a general outline of the steps:
+
+## Install Node.js and npm:
+Ensure you have Node.js and npm installed. You can download and install them from the [Node.js official website](https://nodejs.org/).
+
+## Install Mintlify CLI:
+Open your terminal and install the Mintlify CLI globally using npm:
+```
+npm install -g @mintlify/cli
+```
+
+## Navigate to Your Project Directory:
+Use the terminal to navigate to the directory where your Mintlify documentation project is located.
+```
+cd path/to/your/mintlify/project
+```
+
+## Start the Local Server:
+Run the following command to start the local development server:
+```
+mintlify dev
+```
+This will start the Mintlify development server and you can view your documentation at `http://localhost:3000` or a similar local URL.
+
+# Verify JSON and Description in Documentation
+
+To verify the JSON and descriptions in your documentation:
+
+## Locate Your JSON Files:
+Identify where your JSON files are located in your project. These files might be part of your API documentation or configuration files.
+
+## Open and Inspect JSON Files:
+Open the JSON files using a text editor or an Integrated Development Environment (IDE) like VSCode. Ensure that the JSON is properly formatted. You can use online tools like [JSONLint](https://jsonlint.com/) to validate the structure.
+
+## Check Descriptions:
+Verify that the descriptions within your JSON files are accurate and correctly formatted. These descriptions are typically used to provide details about the API endpoints, parameters, or other elements in your documentation.
+
+## Edit if Necessary:
+If you find any discrepancies or formatting issues, edit the JSON files accordingly. Save the changes and refresh your local Mintlify server to see the updates.
+
+# Steps to Push and Commit Changes to Remote Repository
+
+## Step 1: Stage the Changes
+First, you need to add the changes to the staging area. This includes all the changes made in your working directory.
+```
+git add .
+```
+
+## Step 2: Commit the Changes
+Next, commit the changes with a meaningful commit message. This message should describe the changes you made.
+```
+git commit -m "withdrawals update at response schema"
+```
+
+## Step 3: Push the Changes to the Remote Repository
+Finally, push the committed changes to the remote repository. Replace `your-branch-name` with the name of the branch you are working on.
+```
+git push origin your-branch-name
+```
